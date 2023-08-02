@@ -38,8 +38,9 @@ export const createSession = async (req, res) => {
             },
         ],
         mode: 'payment',
-        success_url: 'http://localhost:3000/create-checkout-session/success',
-        cancel_url: 'http://localhost:3000/create-checkout-session/cancel',
+        success_url: 'http://localhost:4000/create-checkout-session/success',
+        cancel_url: 'http://localhost:4000/create-checkout-session/cancel',
     })
-    return res.json(session)
+    return res.send('<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url='+session.url+'" /></head><body><p>You will be redirected to stripe.com soon!</p></body></html>')
+    // return res.json(session)
 }
